@@ -1,4 +1,4 @@
-let nombre = prompt("Por favor, ingrese su nombre")
+const nombre = prompt("Por favor, ingrese su nombre")
 
 alert(`Bienvenid@ a mi heladería ${nombre}`)
 
@@ -6,7 +6,7 @@ alert(`Bienvenid@ a mi heladería ${nombre}`)
 const medidas = ["1/4", "1/2", "1"]
 
 //Ingreso de la cantidad del pedido
-const medidaHelado = prompt("Ingrese la cantidad de helado (1/4, 1/2, 1)")
+let medidaHelado = prompt("Ingrese la cantidad de helado (1/4, 1/2, 1)")
 
 //Proceso de verificación de cantidad
 const verificarSiNoEsMedida = (medida) => {
@@ -20,7 +20,8 @@ const verificarSiNoEsMedida = (medida) => {
 function eleccionMedida(medida) {
     let noEsMedida = verificarSiNoEsMedida(medida)
     while(noEsMedida){
-        noEsMedida = verificarSiNoEsMedida(prompt("Elija una medida válida (1/4, 1/2, 1)"))
+        medidaHelado = prompt("Elija una medida válida (1/4, 1/2, 1)")
+        noEsMedida = verificarSiNoEsMedida(medidaHelado)
     }
 }
 
