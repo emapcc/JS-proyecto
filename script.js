@@ -1,12 +1,28 @@
-const nombre = prompt("Por favor, ingrese su nombre")
+//Petición de nombre
+function pedirNombre(){
+    const nombre = prompt("Por favor, ingrese su nombre")
+    localStorage.setItem("nombreUsuario", nombre)
+    alert(`Bienvenid@ ${nombre}`)
+}
 
-alert(`Bienvenid@ a mi heladería ${nombre}`)
+//En caso de ya haber ingresado
+function saludar(nombre){
+    alert(`Bienvenid@ de nuevo a mi heladería ${nombre}`)
+}
+
+let conseguirNombre = localStorage.getItem("nombreUsuario")
+
+if(conseguirNombre){
+    saludar(conseguirNombre)
+} else {
+    pedirNombre()
+}
 
 //Medidas de helado disponibles
 const medidas = ["1/4", "1/2", "1"]
 
-//Ingreso de la cantidad del pedido
-let medidaHelado = prompt("Ingrese la cantidad de helado (1/4, 1/2, 1)")
+//Sabores de helado
+const sabores = ["americana", "frutilla", "vainilla", "chocolate", "dulce de leche", "oreo"]
 
 //Proceso de verificación de cantidad
 const verificarSiNoEsMedida = (medida) => {
@@ -17,22 +33,15 @@ const verificarSiNoEsMedida = (medida) => {
     }
 }
 
-function eleccionMedida(medida) {
-    let noEsMedida = verificarSiNoEsMedida(medida)
+function eleccionMedida() {
+    let elegirMedida = prompt("Ingrese la cantidad de helado (1/4, 1/2, 1)")
+    let noEsMedida = verificarSiNoEsMedida(elegirMedida)
     while(noEsMedida){
-        medidaHelado = prompt("Elija una medida válida (1/4, 1/2, 1)")
-        noEsMedida = verificarSiNoEsMedida(medidaHelado)
+        elegirMedida = prompt("Elija una medida válida (1/4, 1/2, 1)")
+        noEsMedida = verificarSiNoEsMedida(elegirMedida)
     }
+    return elegirMedida
 }
-
-eleccionMedida(medidaHelado)
-
-console.log(`Su elección fue registrada: ${medidaHelado} kg`);
-
-//Sabores de helado
-const sabores = ["americana", "frutilla", "vainilla", "chocolate", "dulce de leche", "oreo"]
-
-console.log(`Los sabores de helados disponibles son: ${sabores.join(", ")}`);
 
 //Proceso de verificación de sabores
 const verificarSiNoEsSabor = (sabor) => {
@@ -43,19 +52,46 @@ const verificarSiNoEsSabor = (sabor) => {
     }
 }
 
-function eleccionSabor(sabor) {
-    let esSabor = verificarSiNoEsSabor(sabor)
+function eleccionSabor() {
+    let elegirSabor = prompt("Ingrese sabor:").toLowerCase()
+    let esSabor = verificarSiNoEsSabor(elegirSabor)
     while(esSabor) {
-        esSabor = verificarSiNoEsSabor(prompt("Elija un sabor incluido en nuestro menú"))
+        elegirSabor = prompt("Elija un sabor incluido en nuestro menú")
+        esSabor = verificarSiNoEsSabor(elegirSabor)
     }
+    return elegirSabor
 }
 
-//Elección de cuántos gustos (EN PROCESO)
-/*const cuantosSabores = prompt("Ingrese la cantidad de gustos a elegir")
+//Proceso de elección de sabores
+function cuantosSabores(maximoSabores) {
+    let elegirNumeroSabores = parseInt(prompt("Ingrese la cantidad de gustos a elegir"))
+    while(elegirNumeroSabores <= 0 || elegirNumeroSabores > maximoSabores){
+        elegirNumeroSabores = parseInt(prompt(`Ingrese una cantidad de gustos válida (hasta ${maximoSabores})`))
+    }
+    return elegirNumeroSabores
+}
 
+//function 
+/* let i = 1
+        while(i <= elegirNumeroSabores){
+
+        }
+        for(let i=1; i<=elegirNumeroSabores; i++){
+            
+        } */
+
+//Ingreso de la cantidad del pedido
+let medidaHelado = eleccionMedida()
+
+console.log(`Su elección fue registrada: ${medidaHelado} kg`);
+
+console.log(`Los sabores de helados disponibles son: ${sabores.join(", ")}`);
+
+//Ingreso de sabores elegidos (EN PROCESO)
+/*
 let primerSaborHelado = null
 let segundoSaborHelado = null
-let tercerSaborHelado = null
+let tercerSaborHelado 
 
 if(medidaHelado === "1/4"){
     console.log("Puede elegir hasta tres sabores.");
