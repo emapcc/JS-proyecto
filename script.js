@@ -21,9 +21,6 @@ if(conseguirNombre){
 //Medidas de helado disponibles
 const medidas = ["1/4", "1/2", "1"]
 
-//Sabores de helado
-const sabores = ["americana", "frutilla", "vainilla", "chocolate", "dulce de leche", "oreo"]
-
 //Proceso de verificación de cantidad
 const verificarSiNoEsMedida = (medida) => {
     if(medida === "1/4" || medida === "1/2" || medida === "1") {
@@ -42,6 +39,9 @@ function eleccionMedida() {
     }
     return elegirMedida
 }
+
+//Sabores de helado
+const sabores = ["americana", "frutilla", "vainilla", "chocolate", "dulce de leche", "oreo"]
 
 //Proceso de verificación de sabores
 const verificarSiNoEsSabor = (sabor) => {
@@ -62,7 +62,7 @@ function eleccionSabor() {
     return elegirSabor
 }
 
-//Proceso de elección de sabores
+//Proceso de elección de cantidad de sabores
 function cuantosSabores(maximoSabores) {
     let elegirNumeroSabores = parseInt(prompt("Ingrese la cantidad de gustos a elegir"))
     while(elegirNumeroSabores <= 0 || elegirNumeroSabores > maximoSabores){
@@ -71,44 +71,44 @@ function cuantosSabores(maximoSabores) {
     return elegirNumeroSabores
 }
 
-//function 
-/* let i = 1
-        while(i <= elegirNumeroSabores){
+//Bucle para elección de sabores según cantidad
+function eleccionTodosLosSabores(numeroDeSabores) {
+    let elecciones = []
+    for(let i = 1; i <= numeroDeSabores; i++){
+        elecciones.push(eleccionSabor())
+    }
+    return elecciones
+}
 
-        }
-        for(let i=1; i<=elegirNumeroSabores; i++){
-            
-        } */
+//INGRESO DE DATOS DEL USUARIO
 
 //Ingreso de la cantidad del pedido
 let medidaHelado = eleccionMedida()
 
 console.log(`Su elección fue registrada: ${medidaHelado} kg`);
 
+//Ingreso de la cantidad de sabores y gustos
 console.log(`Los sabores de helados disponibles son: ${sabores.join(", ")}`);
 
-//Ingreso de sabores elegidos (EN PROCESO)
-/*
-let primerSaborHelado = null
-let segundoSaborHelado = null
-let tercerSaborHelado 
+let nroSaboresElegidos
+let saboresElegidos
 
 if(medidaHelado === "1/4"){
     console.log("Puede elegir hasta tres sabores.");
-    primerSaborHelado = prompt("Ingrese su primer sabor:").toLowerCase()
-    eleccionSabor(primerSaborHelado)
-    segundoSaborHelado = prompt("Ingrese su segundo sabor:").toLowerCase()
-    eleccionSabor(segundoSaborHelado)
-    tercerSaborHelado = prompt("Ingrese su tercer sabor:").toLowerCase()
-    eleccionSabor(tercerSaborHelado)
+    nroSaboresElegidos = cuantosSabores(3)
+    saboresElegidos = eleccionTodosLosSabores(nroSaboresElegidos)
+
 } else if(medidaHelado === "1/2") {
     console.log("Puede elegir hasta cuatro sabores");
-    primerSaborHelado = prompt("Ingrese su primer sabor:")
-    segundoSaborHelado = prompt("Ingrese su segundo sabor:")
-    tercerSaborHelado = prompt("Ingrese su tercer sabor:")
+    nroSaboresElegidos = cuantosSabores(4)
+    saboresElegidos = eleccionTodosLosSabores(nroSaboresElegidos)
+
 } else if(medidaHelado === "1") {
     console.log("Puede elegir hasta cinco sabores");
-    primerSaborHelado = prompt("Ingrese su primer sabor:")
-    segundoSaborHelado = prompt("Ingrese su segundo sabor:")
-    tercerSaborHelado = prompt("Ingrese su tercer sabor:")
-}*/
+    nroSaboresElegidos = cuantosSabores(5)
+    saboresElegidos = eleccionTodosLosSabores(nroSaboresElegidos)
+
+}
+
+//PEDIDO FINAL
+alert(`El pedido final es: ${medidaHelado} kg con los sabores ${saboresElegidos.join(", ")}`);
