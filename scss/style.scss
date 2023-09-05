@@ -1,0 +1,112 @@
+body {
+    margin: 0;
+    background-image: url(../assets/fondo-helad.png);
+}
+
+//Fuente descargada
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap');
+
+header {
+    background: #9BB4DF;
+    display: flex;
+    justify-content: space-between;
+    ul {
+        list-style-type: none;
+        display: flex;
+        li {
+            display: flex;
+            align-items: center;
+            a {
+                color: black;
+                font-family: 'Raleway', sans-serif;
+                text-decoration: none;
+                padding: 0 5px;
+                margin: 0 15px;
+                &:hover {
+                    color: red;
+                }
+            }
+        }
+    }
+    img {
+        width: 58px;
+        height: 56px;
+        margin: 5px;
+    }
+}
+
+div {
+    a{
+        img {
+            height: 5.46rem;
+        }
+    }
+    h1 {
+        font-family: 'Raleway', sans-serif;
+        font-size: 70px;
+        margin: 1% 2%;
+    }
+    h2 {
+        font-family: 'Raleway', sans-serif;
+        margin: 0 0 2% 2%;
+        text-decoration: underline;
+    }
+}
+
+//CARDS
+.cards-container {
+    display: grid;
+    grid-template-rows: 1.3fr;
+    grid-template-columns: repeat(4, 1.4fr);
+    justify-items: center;
+    .card {
+        background-color: white;
+        border-radius: 15px;
+        width: 270px;
+        height: 387px;
+        .img1 {
+            width: 227px;
+            height: 141px;
+            border-radius: 10px;
+            display: block;
+            margin: 21px auto;
+        }
+        .img2{
+            width: 204px;
+            height: 175px;
+            border-radius: 10px;
+            display: block;
+            margin: 21px auto;
+        }
+        .img3{
+            width: 182px;
+            height: 175px;
+            border-radius: 10px;
+            display: block;
+            margin: 21px auto;
+        }
+        h3{
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+        }
+        a{
+            text-decoration: none;
+            color: white;
+            background-color: blueviolet;
+            border-radius: 10%;
+            padding: 3% 10%;
+            margin: 100px;
+        }
+    }
+}
+
+.wsp-icon {
+    width: 68px;
+    height: 69px;
+    position: fixed;
+    top: 90%;
+    left: 94%;
+}
+
+//Página Carrito
+@import "./layout/carrito.scss";

@@ -1,16 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200&display=swap");
 body {
-    background-image: url(../assets/fondo.png);
+  margin: 0;
+  background-image: url(../assets/fondo-helad.png);
 }
 
-.card {
-    background-color: white;
-    border-radius: 15%;
-    width: 270px;
-    height: 319px;
-    
+header {
+  background: #9BB4DF;
+  display: flex;
+  justify-content: space-between;
+}
+header ul {
+  list-style-type: none;
+  display: flex;
+}
+header ul li {
+  display: flex;
+  align-items: center;
+}
+header ul li a {
+  color: black;
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+  padding: 0 5px;
+  margin: 0 15px;
+}
+header ul li a:hover {
+  color: red;
+}
+header img {
+  width: 58px;
+  height: 56px;
+  margin: 5px;
 }
 
-.card img {
-    width: 227px;
-    height: 141px;
+div a img {
+  height: 5.46rem;
 }
+div h1 {
+  font-family: "Raleway", sans-serif;
+  font-size: 70px;
+  margin: 1% 2%;
+}
+div h2 {
+  font-family: "Raleway", sans-serif;
+  margin: 0 0 2% 2%;
+  text-decoration: underline;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-rows: 1.3fr;
+  grid-template-columns: repeat(4, 1.4fr);
+  justify-items: center;
+}
+.cards-container .card {
+  background-color: white;
+  border-radius: 15px;
+  width: 270px;
+  height: 387px;
+}
+.cards-container .card .img1 {
+  width: 227px;
+  height: 141px;
+  border-radius: 10px;
+  display: block;
+  margin: 21px auto;
+}
+.cards-container .card .img2 {
+  width: 204px;
+  height: 175px;
+  border-radius: 10px;
+  display: block;
+  margin: 21px auto;
+}
+.cards-container .card .img3 {
+  width: 182px;
+  height: 175px;
+  border-radius: 10px;
+  display: block;
+  margin: 21px auto;
+}
+.cards-container .card h3 {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+}
+.cards-container .card a {
+  text-decoration: none;
+  color: white;
+  background-color: blueviolet;
+  border-radius: 10%;
+  padding: 3% 10%;
+  margin: 100px;
+}
+
+.wsp-icon {
+  width: 68px;
+  height: 69px;
+  position: fixed;
+  top: 90%;
+  left: 94%;
+}
+
+div .h1-carrito {
+  text-align: center;
+}
+
+.carrito-container {
+  width: 656px;
+  height: 366px;
+  background-color: white;
+  border-radius: 15px;
+  text-align: left;
+  margin: 3rem auto;
+}
+.carrito-container h2 {
+  text-align: center;
+}
+.carrito-container form label {
+  display: block;
+  margin-top: 15px;
+}
+
+/*# sourceMappingURL=style.css.map */

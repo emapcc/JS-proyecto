@@ -3,53 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heladería</title>
+    <title>HOME - Capitán Frío</title>
 
     <!-- Link CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="./assets/logoheladeria.png" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><a href="./index.html">HOME</a></li>
+            <li><a href="./pages/carrito.html">CARRITO</a></li>
+            <li><a href="">NOSOTROS</a></li>
         </ul>
 
-        <img src="./assets/logoheladeria.png" alt="">
+        <a href="./index.html"><img src="./assets/logoheladeria.png" alt=""></a>
     </header>
     
     <div>
-        <a href=""><img src="" alt=""></a>
+        <a href=""><img src="./assets/publicidad1.png" alt=""></a>
     </div>
 
+    <!-- Cuerpo de la página -->
     <div>
         <h1>Heladería Capitán Frío</h1>
-        <h2>Bienvenida/o a Heladería </h2>
+        <h2>Bienvenida/o a nuestra Heladería </h2>
 
         <!-- Grupo de Cards -->
-        <div>
+        <div class="cards-container">
             <div class="card">
-                <img src="./assets/helado_ilustrativo.jpeg" alt="">
+                <img class="img1" src="./assets/helado_ilustrativo.jpeg" alt="">
                 <h3>Medidas de Helado</h3>
+                <!-- Selección -->
+                <form id="form" action="">
+                    <label for="">Medida:</label>
+                    <select name="medidas" id="">
+                        <option selected value="">--Seleccione</option>
+                        <option value="">1/4 kg (hasta 3 sabores)</option>
+                        <option value="">1/2 kg (hasta 4 sabores)</option>
+                        <option value=""> 1 kg (hasta 5 sabores)</option>
+                    </select>
+        
+                    <label for="">Sabores:</label>
+                    <div>
+                        <input type="checkbox" name="americana" id="americana"> Americana
+                        <input type="checkbox" name="frutilla" id="frutilla">Frutilla
+                        <input type="checkbox" name="vainilla" id="vainilla">Vainilla
+                        <input type="checkbox" name="chocolate" id="chocolate">Chocolate
+                        <input type="checkbox" name="dulce de leche" id="dulce de leche">Dulce de leche
+                        <input type="checkbox" name="oreo" id="oreo">Crema oreo
+                    </div>
+        
+                    <button id="agregar" class="button-agregar">Agregar</button>
+                    
+                </form>
+
+                <a href="">Ir</a>
             </div>
             <div class="card">
-                <img src="./assets/helados_palito.jpeg" alt="">
+                <img class="img2" src="./assets/helados_palito.jpeg" alt="">
                 <h3>Palito</h3>
+                <a href="">Ir</a>
             </div>
             <div class="card">
-                <img src="./assets/helado_industrial.webp" alt="">
+                <img class="img3" src="./assets/helado_industrial.webp" alt="">
                 <h3>Helado Industrial</h3>
+                <a href="">Ir</a>
             </div>
             <div class="card">
-                <img src="./assets/helado_porciones.jpeg" alt="">
+                <img class="img1" src="./assets/helado_porciones.jpeg" alt="">
                 <h3>Porciones</h3>
+                <a href="">Ir</a>
             </div>
         </div>
 
-        <a href=""><img src="./assets/icono_wsp.webp" alt=""></a>
+        <a href=""><img class="wsp-icon" src="./assets/icono_wsp.webp" alt=""></a>
     </div>
+
+    <!-- Sección Carrito -->
+    <section>
+        <h2>Carrito:</h2>
+
+        
+    </section>
+
+    <!-- Sección Login -->
+    <!--<section>
+
+    </section> -->
 
     <footer></footer>
 
