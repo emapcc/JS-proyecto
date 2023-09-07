@@ -120,8 +120,9 @@ alert(`El pedido final es: ${medidaHelado} kg con los sabores ${saboresElegidos.
 const productos = []
 
 class Helado {
-    constructor(medida, sabores) {
+    constructor(numero, medida, sabores) {
         //Propiedades del objeto
+        this.id = numero
         this.medida = medida
         this.sabores = sabores
     }
@@ -133,26 +134,43 @@ class Helado {
         return this.sabores
     }
     get conseguirHelado() {
-        return `Producto: helado de ${this.medida} kg con los gustos ${this.sabores.join(`, `)}`
+        return `Producto: Helado de ${this.medida} kg con los sabores: ${this.sabores.join(`, `)}`
+    }
+}
+
+const crearCarrito = () => {
+    //Obtenemos el carrito
+    const carrito = document.querySelector(".carrito")
+    carrito.innerHTML = ""
+    for (const producto of productos) {
+        let item = producto.conseguirHelado
+        let idHelado = producto.id
+        let itemCarrito = document.createElement("li")
+        itemCarrito.innerHTML = `<p id="helado${idHelado}">${item} <button id="item${idHelado}">X</button></p>`
+        carrito.appendChild(itemCarrito)
+        /* const botonEliminar = document.getElementById(`item${idHelado}`)
+        botonEliminar.addEventListener("click",() => {
+            itemCarrito.remove()
+            for (const producto of productos) {
+                if (producto.id === `helado${idHelado}`) {
+                    producto.remove()
+                }
+            }
+        }) */
+        const botonEliminar = document.getElementById(`item${idHelado}`);
+        botonEliminar.addEventListener("click", () => {
+            //Elimina el li con el producto
+            itemCarrito.remove();
+            // Encuentra el índice del producto en el array de productos
+            const index = productos.findIndex((producto) => producto.id === idHelado);
+            if (index !== -1) {
+                productos.splice(index, 1); // Elimina el producto del array
+            }
+        });
     }
 }
 
 const formMedidaHelado = document.getElementById("form-medida")
-  const crearCarrito = () => {
-    //Obtenemos el carrito
-    const carrito = document.querySelector(".carrito")
-    for (const producto of productos) {
-        let itemCarrito = document.createElement("li")
-        /* let medidaHelado = producto.conseguirMedida
-        let saboresHelado = producto.conseguirSabores */
-        let item = producto.conseguirHelado
-        itemCarrito.innerHTML = `${item}`
-        carrito.appendChild(itemCarrito)
-        /* itemCarrito.innerHTML = `Producto: Helado de ${medidaHelado} kg con los sabores ${saboresHelado}`
-        carrito.appendChild(itemCarrito) */
-    }
-}
-
 formMedidaHelado.addEventListener("submit", (event) => {
     event.preventDefault(0);
     const medidaHelado = document.getElementById("medida-helado").value;
@@ -177,17 +195,17 @@ formMedidaHelado.addEventListener("submit", (event) => {
     let saboresElegidos = [];
     checkSabores.forEach((sabor) => {
       if (sabor.checked) {
-        saboresElegidos.push(sabor.id);
+        saboresElegidos.push(sabor.name);
       }
     });
+    let contador = /* saboresElegidos.length *  */parseInt((Math.random() * 100000))
     
     //Crea el objeto Helado con la respuesta del formulario medida y el array creado con los sabores
-    const helado = new Helado(medidaHelado, saboresElegidos);
-    console.log(helado);
+    const helado = new Helado(contador, medidaHelado, saboresElegidos);
     productos.push(helado);
-    console.log(productos);
     crearCarrito()
 });
+
 
 
 
