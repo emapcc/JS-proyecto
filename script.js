@@ -65,13 +65,13 @@ function eleccionSabor() {
 }
 
 //Proceso de elección de cantidad de sabores
-function cuantosSabores(maximoSabores) {
-    let elegirNumeroSabores = parseInt(prompt("Ingrese la cantidad de gustos a elegir"))
-    while(elegirNumeroSabores <= 0 || elegirNumeroSabores > maximoSabores){
-        elegirNumeroSabores = parseInt(prompt(`Ingrese una cantidad de gustos válida (hasta ${maximoSabores})`))
-    }
-    return elegirNumeroSabores
-}
+// function cuantosSabores(maximoSabores) {
+//     let elegirNumeroSabores = parseInt(prompt("Ingrese la cantidad de gustos a elegir"))
+//     while(elegirNumeroSabores <= 0 || elegirNumeroSabores > maximoSabores){
+//         elegirNumeroSabores = parseInt(prompt(`Ingrese una cantidad de gustos válida (hasta ${maximoSabores})`))
+//     }
+//     return elegirNumeroSabores
+// }
 
 //Bucle para elección de sabores según cantidad
 function eleccionTodosLosSabores(numeroDeSabores) {
@@ -138,6 +138,20 @@ class Helado {
     }
 }
 
+let productosJS = JSON.parse(sessionStorage.getItem("productos"))
+
+// //Recupera carrito
+// const carritoGuardado = () => {
+//     /* if (productos.length == 0) {
+//         productos.push(productosJS)
+//         crearCarrito()
+//     } */
+//     if (productosJS && productosJS.length > 0) {
+//         productos.push(...productosJS); // Fusiona los arrays
+//         crearCarrito();
+//     }
+// }
+
 const crearCarrito = () => {
     //Obtenemos el carrito
     const carrito = document.querySelector(".carrito")
@@ -166,9 +180,21 @@ const crearCarrito = () => {
             if (index !== -1) {
                 productos.splice(index, 1); // Elimina el producto del array
             }
+            //Guarda el array de productos
+            // let productosJSON = JSON.stringify(productos)
+            // sessionStorage.setItem("productos", productosJSON)
         });
     }
 }
+
+// function cuantosSabores(listaSabores, maximoSabores) {
+//     let elegirNumeroSabores = listaSabores.length
+//     while(elegirNumeroSabores <= 0 || elegirNumeroSabores > maximoSabores){
+//         /* elegirNumeroSabores = parseInt(prompt(`Ingrese una cantidad de gustos válida (hasta ${maximoSabores})`)) */
+//         //listaSabores = [] ??????
+//     }
+//     return listaSabores
+// }
 
 const formMedidaHelado = document.getElementById("form-medida")
 formMedidaHelado.addEventListener("submit", (event) => {
@@ -191,58 +217,20 @@ formMedidaHelado.addEventListener("submit", (event) => {
       saborOreo,
     ];
     
-    //Recorre y agrega el id al array saboresElegidos los sabores chequeados
     let saboresElegidos = [];
+    // cuantosSabores(saboresElegidos, 5)
+    //Recorre y agrega el id al array saboresElegidos los sabores chequeados
     checkSabores.forEach((sabor) => {
       if (sabor.checked) {
         saboresElegidos.push(sabor.name);
       }
     });
-    let contador = /* saboresElegidos.length *  */parseInt((Math.random() * 100000))
+    let contador = parseInt((Math.random() * 100000))
+    
+    //Verifica la entrada de sabores
     
     //Crea el objeto Helado con la respuesta del formulario medida y el array creado con los sabores
     const helado = new Helado(contador, medidaHelado, saboresElegidos);
     productos.push(helado);
     crearCarrito()
 });
-
-
-
-
-/* const carrito = document.querySelector(".carrito")
-carrito.innerHTML = `
-
-` */
-
-
-
-
-
-
-
-//
-const renderizarCarrito = ()=>{
-    // borra el cotnenido de carrito y renderiza carrito en una lista
-    const listaCarrito = document.getElementById("listaCarrito")
-    // borramos para evitar clones viejos
-    listaCarrito.innerHTML=""
-    carrito.forEach(({name, price, quantity, id}) =>{
-        let elementoLista = document.createElement("li")
-        elementoLista.innerHTML=`Producto:${name} -- P/u: ${price} -- Cant.:${quantity} <button id="eliminarCarrito${id}">X</button>`
-        listaCarrito.appendChild(elementoLista)
-        const botonBorrar = document.getElementById(`eliminarCarrito${id}`)
-        botonBorrar.addEventListener("click",()=>{
-            // creo un array sin el elemento a borrar y lo igualo a carrito
-            carrito = carrito.filter((elemento)=>{
-                if(elemento.id !== id){
-                    return elemento
-                }
-            })
-            let carritoString = JSON.stringify(carrito)
-            localStorage.setItem("carrito", carritoString)
-            renderizarCarrito()
-        })
-        let carritoString = JSON.stringify(carrito)
-        localStorage.setItem("carrito", carritoString)
-    })
-}
