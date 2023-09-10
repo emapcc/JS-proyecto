@@ -117,7 +117,7 @@ alert(`El pedido final es: ${medidaHelado} kg con los sabores ${saboresElegidos.
 */
 
 //NUEVO
-const productos = []
+let productos = []
 
 class Helado {
     constructor(numero, medida, sabores) {
@@ -138,40 +138,29 @@ class Helado {
     }
 }
 
-let productosJS = JSON.parse(sessionStorage.getItem("productos"))
-
-// //Recupera carrito
-// const carritoGuardado = () => {
-//     /* if (productos.length == 0) {
-//         productos.push(productosJS)
-//         crearCarrito()
-//     } */
-//     if (productosJS && productosJS.length > 0) {
-//         productos.push(...productosJS); // Fusiona los arrays
-//         crearCarrito();
-//     }
-// }
-
+//Función para agregar item al carrito
 const crearCarrito = () => {
     //Obtenemos el carrito
     const carrito = document.querySelector(".carrito")
+    //Lo vaciamos
     carrito.innerHTML = ""
+    //Creo variable que va a ir al storage
+    let productosJSON = JSON.stringify(productos)
+    //Agregamos item
     for (const producto of productos) {
         let item = producto.conseguirHelado
         let idHelado = producto.id
         let itemCarrito = document.createElement("li")
         itemCarrito.innerHTML = `<p id="helado${idHelado}">${item} <button id="item${idHelado}">X</button></p>`
         carrito.appendChild(itemCarrito)
-        /* const botonEliminar = document.getElementById(`item${idHelado}`)
-        botonEliminar.addEventListener("click",() => {
-            itemCarrito.remove()
-            for (const producto of productos) {
-                if (producto.id === `helado${idHelado}`) {
-                    producto.remove()
-                }
-            }
-        }) */
+        
+        //Guarda el array de productos
+        productosJSON = JSON.stringify(productos)
+        sessionStorage.setItem("productos", productosJSON)
+        
+        //Recupera el botón creado en HTML de eliminar producto
         const botonEliminar = document.getElementById(`item${idHelado}`);
+        //Agrego un evento
         botonEliminar.addEventListener("click", () => {
             //Elimina el li con el producto
             itemCarrito.remove();
@@ -180,25 +169,34 @@ const crearCarrito = () => {
             if (index !== -1) {
                 productos.splice(index, 1); // Elimina el producto del array
             }
-            //Guarda el array de productos
-            // let productosJSON = JSON.stringify(productos)
-            // sessionStorage.setItem("productos", productosJSON)
+        //Guarda nuevamente el array de productos si se borró alguno
+        productosJSON = JSON.stringify(productos)
+        sessionStorage.setItem("productos", productosJSON)
         });
     }
 }
 
-// function cuantosSabores(listaSabores, maximoSabores) {
-//     let elegirNumeroSabores = listaSabores.length
-//     while(elegirNumeroSabores <= 0 || elegirNumeroSabores > maximoSabores){
-//         /* elegirNumeroSabores = parseInt(prompt(`Ingrese una cantidad de gustos válida (hasta ${maximoSabores})`)) */
-//         //listaSabores = [] ??????
-//     }
-//     return listaSabores
-// }
+function buscarCarritoEnStorage() {
+    let productosJS = JSON.parse(sessionStorage.getItem("productos"))
 
+    if(productosJS) {  
+        let carritoViejo = []
+
+        for(const item of productosJS) {
+            let helado = new Helado(item.id, item.medida, item.sabores)
+            carritoViejo.push(helado)
+        }
+
+        productos.push(...carritoViejo)
+
+    } 
+}
+
+//Recuperamos form HTML
 const formMedidaHelado = document.getElementById("form-medida")
+//Recuperamos respuestas del usuario del form HTML con un evento
 formMedidaHelado.addEventListener("submit", (event) => {
-    event.preventDefault(0);
+    event.preventDefault();
     const medidaHelado = document.getElementById("medida-helado").value;
     const saborAmericana = document.getElementById("americana");
     const saborFrutilla = document.getElementById("frutilla");
@@ -218,8 +216,8 @@ formMedidaHelado.addEventListener("submit", (event) => {
     ];
     
     let saboresElegidos = [];
-    // cuantosSabores(saboresElegidos, 5)
-    //Recorre y agrega el id al array saboresElegidos los sabores chequeados
+    
+    //Recorre y agrega el name al array saboresElegidos que contiene los sabores chequeados
     checkSabores.forEach((sabor) => {
       if (sabor.checked) {
         saboresElegidos.push(sabor.name);
@@ -227,10 +225,18 @@ formMedidaHelado.addEventListener("submit", (event) => {
     });
     let contador = parseInt((Math.random() * 100000))
     
-    //Verifica la entrada de sabores
-    
     //Crea el objeto Helado con la respuesta del formulario medida y el array creado con los sabores
     const helado = new Helado(contador, medidaHelado, saboresElegidos);
     productos.push(helado);
+
+    productosJSON = JSON.stringify(productos);
+    sessionStorage.setItem("productos", productosJSON);
+
+    //Ejecuta 
     crearCarrito()
 });
+
+//Busca si había previamente algún elemento en el carrito
+buscarCarritoEnStorage()
+//Actualiza el carrito
+crearCarrito()
