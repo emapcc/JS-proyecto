@@ -46,9 +46,9 @@
                     <label for="">Medidas:</label>
                     <select name="medida" id="medida-helado">
                         <option selected value="">--Seleccione</option>
-                        <option value="1/4">1/4 kg (hasta 3 sabores)</option>
-                        <option value="1/2">1/2 kg (hasta 4 sabores)</option>
-                        <option value="1">1 kg (hasta 5 sabores)</option>
+                        <option value="1/4">1/4 kg (hasta 3 sabores) - $800</option>
+                        <option value="1/2">1/2 kg (hasta 4 sabores) - $1000</option>
+                        <option value="1">1 kg (hasta 5 sabores) - $1200</option>
                     </select>
 
                     <label for="">Sabores:</label>
@@ -94,9 +94,14 @@
             <ul class="carrito"></ul>
             <div>
                 <h3 class="datos-usuario">Tus datos:</h3>
-                <form>
+                <form class="usuario">
                     <label for="">Nombre</label>
-                    <input type="text" name="name" id="">
+                    <input required type="text" name="nombre" id="nombre" placeholder="John">
+                    <label for="">Apellido</label>
+                    <input required type="text" name="apellido" id="apellido" placeholder="López">
+                    <label for="">Mail</label>
+                    <input required type="email" name="mail" id="mail" placeholder="hola@gmail.com">
+                    <button id="boton-comprar">Comprar</button>
                 </form>
             </div>
         </div>

@@ -73,6 +73,32 @@ function buscarCarritoEnStorage() {
     } 
 }
 
+//Función para realizar la compra
+function realizarCompra() {
+    let idDeCompra = parseInt((Math.random() * 1000000000))
+    Swal.fire({
+        title: `Tu ID de compra es: #${idDeCompra}`,
+        width: 600,
+        padding: '3em',
+        color: 'white',
+        background: 'rgba(216, 196, 250, 1)',
+        backdrop: `
+            rgba(255, 255, 255, 0.6)
+            left top
+            no-repeat
+        `
+    })
+    // const itemsEnCarrito = document.querySelector()
+    const carrito = document.querySelector(".carrito")
+    carrito.innerHTML = ""
+    productos = []
+
+    productosJSON = JSON.stringify(productos);
+    localStorage.setItem("productos", productosJSON);
+
+    crearCarrito()
+}
+
 //Recuperamos form HTML
 const formMedidaHelado = document.getElementById("form-medida")
 //Recuperamos respuestas del usuario del form HTML con un evento
@@ -221,5 +247,25 @@ formMedidaHelado.addEventListener("submit", (event) => {
 
 //Busca si había previamente algún elemento en el carrito
 buscarCarritoEnStorage()
-//Actualiza carrito
 crearCarrito()
+
+//Proceso de compra
+const botonDeCompra = document.getElementById("boton-comprar")
+botonDeCompra.addEventListener("click", () => {
+    if (productos.length > 0) {
+        realizarCompra()
+    }else {
+        Swal.fire({
+            title: 'Debes agregar productos al carrito',
+            width: 600,
+            padding: '3em',
+            color: '#000000',
+            background: '#fff',
+            backdrop: `
+                #ff000080
+                left top
+                no-repeat
+            `
+        })
+    }
+})
