@@ -25,7 +25,7 @@ header ul li a {
   margin: 0 15px;
 }
 header ul li a:hover {
-  color: red;
+  color: pink;
 }
 header img {
   width: 58px;

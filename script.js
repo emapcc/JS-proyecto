@@ -106,9 +106,110 @@ formMedidaHelado.addEventListener("submit", (event) => {
     });
     let contador = parseInt((Math.random() * 100000))
     
-    //Crea el objeto Helado con la respuesta del formulario medida y el array creado con los sabores
-    const helado = new Helado(contador, medidaHelado, saboresElegidos);
-    productos.push(helado);
+    //Corrobora que las opciones pasadas sean correctas
+    if(saboresElegidos.length > 0 && medidaHelado) {
+        if(medidaHelado == "1/4") {
+            if (saboresElegidos.length > 3) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-start',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Excede el límite de sabores'
+                })
+            } else {
+                const helado = new Helado(contador, medidaHelado, saboresElegidos);
+                productos.push(helado);
+            }
+        } else if (medidaHelado == "1/2") {
+            if (saboresElegidos.length > 4) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-start',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Excede el límite de sabores'
+                })
+            } else {
+                const helado = new Helado(contador, medidaHelado, saboresElegidos);
+                productos.push(helado);
+            }
+        } else if (medidaHelado == "1") {
+            if (saboresElegidos.length > 5) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'bottom-start',
+                    showConfirmButton: false,
+                    timer: 2000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+                
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Excede el límite de sabores'
+                })
+            } else {
+                const helado = new Helado(contador, medidaHelado, saboresElegidos);
+                productos.push(helado);
+            }
+        }
+    } else if (saboresElegidos.length <= 0) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-start',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        
+        Toast.fire({
+            icon: 'warning',
+            title: 'Debe ingresar al menos un sabor'
+        })
+    } else if (!medidaHelado) {
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'bottom-start',
+            showConfirmButton: false,
+            timer: 2000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+        
+        Toast.fire({
+            icon: 'warning',
+            title: 'Debe ingresar una medida'
+        })
+    }
 
     //Guarda en el Storage los productos recibidos
     productosJSON = JSON.stringify(productos);
