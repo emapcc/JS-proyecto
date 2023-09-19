@@ -63,7 +63,7 @@ div {
         background-color: white;
         border-radius: 15px;
         width: 270px;
-        height: 387px;
+        height: 435px;
         .img1 {
             width: 227px;
             height: 141px;
@@ -97,6 +97,31 @@ div {
             padding: 3% 10%;
             margin: 100px;
         }
+        form {
+            label {
+                font-family: 'Raleway', sans-serif;
+                margin-left: 5px;
+                margin-top: 1%;
+            }
+            .container-sabores {
+                display: grid;
+                grid-template-columns: 15% 50%;
+                margin-left: 65px;
+            }
+            input {
+                display: inline;
+            }
+            button {
+                text-decoration: none;
+                color: white;
+                background-color: blueviolet;
+                border-radius: 10%;
+                border: none;
+                padding: 3% 10px;
+                margin-top: 10px;
+                margin-left: 100px;
+            }
+        }
     }
 }
 
@@ -109,10 +134,52 @@ div {
 }
 
 //Página Carrito
-@import "./layout/carrito.scss";
-
 section {
+    border-top: 1px solid rgb(131, 131, 131);
+    margin-top: 5%;
     h2 {
-        
+        font-family: 'Raleway', sans-serif;
+        margin-top: 1rem;
+        text-align: center;
+        font-size: xx-large;
+    }
+    .carrito-container {
+        width: 656px;
+        height: 366px;
+        background-color: white;
+        border-radius: 15px;
+        text-align: left;
+        margin: 0 auto 2rem auto;
+        h3 {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            text-decoration: underline;
+            padding-top: 25px;
+        }
+        ul {
+            list-style-type: none;
+            li {
+                font-family: 'Raleway', sans-serif;
+                p {
+                    button {
+                        background-color: blueviolet;
+                        color: white;
+                        border: none;
+                        border-radius: 3px;
+                    }
+                }
+            }
+        }
+        div {
+            .datos-usuario {
+                text-align: start;
+            }
+            form {
+                label {
+                    display: inline;
+                    margin-top: 15px;
+                }
+            }
+        }
     }
 }

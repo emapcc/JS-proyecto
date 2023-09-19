@@ -32,7 +32,7 @@ const crearCarrito = () => {
         let item = producto.conseguirHelado
         let idHelado = producto.id
         let itemCarrito = document.createElement("li")
-        itemCarrito.innerHTML = `<p id="helado${idHelado}">${item} <button id="item${idHelado}">X</button></p>`
+        itemCarrito.innerHTML = `<p id="helado${idHelado}">${item} <button id="item${idHelado}">Eliminar</button></p>`
         carrito.appendChild(itemCarrito)
         
         //Guarda el array de productos

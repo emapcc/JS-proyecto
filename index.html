@@ -52,12 +52,14 @@
                     </select>
 
                     <label for="">Sabores:</label>
-                    <input type="checkbox" name="americana" id="americana">Americana
-                    <input type="checkbox" name="frutilla" id="frutilla">Frutilla
-                    <input type="checkbox" name="vainilla" id="vainilla">Vainilla
-                    <input type="checkbox" name="chocolate" id="chocolate">Chocolate
-                    <input type="checkbox" name="dulce de leche" id="dulce-de-leche">Dulce de Leche
-                    <input type="checkbox" name="oreo" id="oreo">Crema oreo
+                    <div class="container-sabores">
+                        <input type="checkbox" name="americana" id="americana">Americana
+                        <input type="checkbox" name="frutilla" id="frutilla">Frutilla
+                        <input type="checkbox" name="vainilla" id="vainilla">Vainilla
+                        <input type="checkbox" name="chocolate" id="chocolate">Chocolate
+                        <input type="checkbox" name="dulce de leche" id="dulce-de-leche">Dulce de Leche
+                        <input type="checkbox" name="oreo" id="oreo">Crema oreo
+                    </div>
 
                     <button type="submit">Agregar</button>
                 </form>
@@ -86,8 +88,18 @@
 
     <!-- Sección Carrito -->
     <section>
-        <h2 id="carrito">Carrito:</h2>
-        <ul class="carrito"></ul>
+        <h2 id="carrito">Carrito</h2>
+        <div class="carrito-container">
+            <h3>Tu Pedido:</h3>
+            <ul class="carrito"></ul>
+            <div>
+                <h3 class="datos-usuario">Tus datos:</h3>
+                <form>
+                    <label for="">Nombre</label>
+                    <input type="text" name="name" id="">
+                </form>
+            </div>
+        </div>
     </section>
 
     <!-- Sección Login -->
