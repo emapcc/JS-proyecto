@@ -88,21 +88,21 @@ formMedidaHelado.addEventListener("submit", (event) => {
     
     //Guarda resp usuario de cada sabor en un array
     const checkSabores = [
-      saborAmericana,
-      saborFrutilla,
-      saborVainilla,
-      saborChocolate,
-      saborDulceDeLeche,
-      saborOreo,
+        saborAmericana,
+        saborFrutilla,
+        saborVainilla,
+        saborChocolate,
+        saborDulceDeLeche,
+        saborOreo,
     ];
     
     let saboresElegidos = [];
     
     //Recorre y agrega el name al array saboresElegidos que contiene los sabores chequeados
     checkSabores.forEach((sabor) => {
-      if (sabor.checked) {
-        saboresElegidos.push(sabor.name);
-      }
+        if (sabor.checked) {
+            saboresElegidos.push(sabor.name);
+        }
     });
     let contador = parseInt((Math.random() * 100000))
     
