@@ -15,42 +15,35 @@ class Helado {
         return this.sabores
     }
     get conseguirHelado() {
-        return `Producto: Helado de ${this.medida} kg con los sabores: ${(this.sabores).join(", ")}`
+        return `Helado de ${this.medida} kg con los sabores: ${(this.sabores).join(", ")}`
     }
 }
 
 //Función para agregar item al carrito
 const crearCarrito = () => {
-    //Obtenemos el carrito
     const carrito = document.querySelector(".carrito")
-    //Lo vaciamos
     carrito.innerHTML = ""
-    //Creo variable que va a ir al storage
     let productosJSON = JSON.stringify(productos)
-    //Agregamos item
+    
     for (const producto of productos) {
         let item = producto.conseguirHelado
         let idHelado = producto.id
         let itemCarrito = document.createElement("li")
-        itemCarrito.innerHTML = `<p id="helado${idHelado}">${item} <button id="item${idHelado}">Eliminar</button></p>`
+        itemCarrito.innerHTML = `<p id="helado${idHelado}">${item}<button id="item${idHelado}">Eliminar</button></p>`
         carrito.appendChild(itemCarrito)
         
         //Guarda el array de productos
         productosJSON = JSON.stringify(productos)
         localStorage.setItem("productos", productosJSON)
         
-        //Recupera el botón creado en HTML de eliminar producto
         const botonEliminar = document.getElementById(`item${idHelado}`);
-        //Agrego un evento
         botonEliminar.addEventListener("click", () => {
-            //Elimina el li con el producto
             itemCarrito.remove();
-            // Encuentra el índice del producto en el array de productos
             const index = productos.findIndex((producto) => producto.id === idHelado);
             if (index !== -1) {
-                productos.splice(index, 1); // Elimina el producto del array
+                productos.splice(index, 1);
             }
-        //Guarda nuevamente el array de productos si se borró alguno
+        
         productosJSON = JSON.stringify(productos)
         localStorage.setItem("productos", productosJSON)
         });
@@ -92,11 +85,21 @@ function realizarCompra() {
     const carrito = document.querySelector(".carrito")
     carrito.innerHTML = ""
     productos = []
-
     productosJSON = JSON.stringify(productos);
     localStorage.setItem("productos", productosJSON);
-
     crearCarrito()
+}
+
+//Función para verificar que el usuario ingresó datos
+function recuperarDatosUsuario() {
+    let nombreUsuario = document.querySelector("#nombre")
+    let apellidoUsuario = document.querySelector("#apellido")
+    let emailUsuario = document.querySelector("#mail")
+    let existe 
+    if (nombreUsuario.value !== '' && apellidoUsuario.value !== '' && emailUsuario.value !== '') {
+        existe = true
+    }
+    return existe
 }
 
 //Recuperamos form HTML
@@ -245,14 +248,11 @@ formMedidaHelado.addEventListener("submit", (event) => {
     crearCarrito()
 });
 
-//Busca si había previamente algún elemento en el carrito
-buscarCarritoEnStorage()
-crearCarrito()
-
 //Proceso de compra
-const botonDeCompra = document.getElementById("boton-comprar")
-botonDeCompra.addEventListener("click", () => {
-    if (productos.length > 0) {
+const formDatosUsuario = document.getElementById("form-datos-usuario")
+formDatosUsuario.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    if (productos.length > 0 && recuperarDatosUsuario) {
         realizarCompra()
     }else {
         Swal.fire({
@@ -269,3 +269,7 @@ botonDeCompra.addEventListener("click", () => {
         })
     }
 })
+
+//Busca si había previamente algún elemento en el carrito
+buscarCarritoEnStorage()
+crearCarrito()

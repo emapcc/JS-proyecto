@@ -57,7 +57,7 @@ div h2 {
   background-color: white;
   border-radius: 15px;
   width: 270px;
-  height: 435px;
+  height: 452px;
 }
 .cards-container .card .img1 {
   width: 227px;
@@ -96,6 +96,9 @@ div h2 {
   font-family: "Raleway", sans-serif;
   margin-left: 5px;
   margin-top: 1%;
+}
+.cards-container .card form select {
+  margin-left: 40px;
 }
 .cards-container .card form .container-sabores {
   display: grid;
@@ -141,6 +144,7 @@ section .carrito-container {
   border-radius: 15px;
   text-align: left;
   margin: 0 auto 2rem auto;
+  box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.25);
 }
 section .carrito-container h3 {
   text-align: center;
@@ -162,14 +166,29 @@ section .carrito-container ul li p button {
 }
 section .carrito-container div .datos-usuario {
   text-align: start;
+  margin-left: 20px;
 }
-section .carrito-container div form label {
+section .carrito-container div .form-usuario {
+  display: grid;
+  grid-template-columns: 80px 80px;
+  grid-template-rows: repeat(3, 20px);
+  margin: 0 195px;
+  row-gap: 10px;
+  column-gap: 30px;
+}
+section .carrito-container div .form-usuario label {
   display: inline;
-  margin-top: 15px;
+  font-family: "Raleway", sans-serif;
 }
-
-body {
-  color: #000000;
+section .carrito-container div .form-usuario input {
+  border: none;
+  border-bottom: 1px solid blueviolet;
+  width: 150px;
+}
+section .carrito-container div .form-usuario button {
+  border: none;
+  background-color: blueviolet;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
