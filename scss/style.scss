@@ -201,12 +201,14 @@ h2 {
     font-family: 'Raleway', sans-serif;
     text-decoration: underline;
     margin-left: 2%;
-    margin-top: 2%;
+    margin-top: 3%;
 }
 
 .container-promociones {
+    height: 245px;
     margin-left: 10px;
     margin-right: 25px;
+    margin-bottom: 15px;
     display: grid;
     grid-template-rows: 120px;
     grid-template-columns: 50% 50%;
@@ -214,7 +216,7 @@ h2 {
     section {
         background-color: #9285d2;
         border-radius: 20px;
-        height: 230px;
+        height: 240px;
         h3 {
             color: white;
             font-family: 'Raleway', sans-serif;
@@ -222,27 +224,26 @@ h2 {
             margin-top: 15px;
             margin-bottom: 0;
         }
-        .container-promo1 {
+        ul {
+            li {
+                p {
+                    
+                    font-family: 'Raleway', sans-serif;
+                }
+            }
+        }
+        div {
             p {
-                margin: 0;
                 font-family: 'Raleway', sans-serif;
+                margin-left: 15px;
             }
-            div {
-                div {
-                    .total-promo {
-                        text-decoration: underline;
-                    }
-                }
-            }
-            div {
-                button {
-                    margin: 10px;
-                    padding: 5px 10px;
-                    background-color: blueviolet;
-                    color: white;
-                    border: none;
-                    border-radius: 3px;
-                }
+            button {
+                padding: 5px 10px;
+                background-color: blueviolet;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                margin: 10px 0 10px 20px;
             }
         }
     }
