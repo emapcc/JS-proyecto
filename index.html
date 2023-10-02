@@ -36,13 +36,12 @@
         <h1 id="inicio">Heladería Capitán Frío</h1>
         <h2>Bienvenida/o a nuestra Heladería </h2>
 
-        <!-- Grupo de Cards -->
-        <div class="cards-container">
+        <div class="container">
             <!-- Card Medidas de Helado-->
             <div class="card">
                 <img class="img1" src="./assets/helado_ilustrativo.jpeg" alt="">
                 <h3>Medidas de Helado</h3>
-                <form id="form-medida" action="">
+                <form id="form-medida">
                     <label for="">Medidas:</label>
                     <select name="medida" id="medida-helado">
                         <option selected value="">--Seleccione</option>
@@ -63,56 +62,42 @@
 
                     <button type="submit">Agregar</button>
                 </form>
+            </div>
 
-            </div>
-            <!-- Card Palito -->
-            <div class="card">
-                <img class="img2" src="./assets/helados_palito.jpeg" alt="">
-                <h3>Palito</h3>
-                <a href="">Ir</a>
-            </div>
-            <div class="card">
-                <img class="img3" src="./assets/helado_industrial.webp" alt="">
-                <h3>Helado Industrial</h3>
-                <a href="">Ir</a>
-            </div>
-            <div class="card">
-                <img class="img1" src="./assets/helado_porciones.jpeg" alt="">
-                <h3>Porciones</h3>
-                <a href="">Ir</a>
-            </div>
+            <!-- Sección Carrito -->
+            <section>
+                <h2 id="carrito">Carrito</h2>
+                <div class="carrito-container">
+                    <h3>Tu Pedido:</h3>
+                    <ul class="carrito"></ul>
+                    <div>
+                        <h3 class="datos-usuario">Tus datos:</h3>
+                        <form id="form-datos-usuario" class="form-usuario">
+                            <label for="">Nombre:</label>
+                            <input required type="text" name="nombre" id="nombre" placeholder="John">
+                            <label for="">Apellido:</label>
+                            <input required type="text" name="apellido" id="apellido" placeholder="López">
+                            <label for="">Mail:</label>
+                            <input required type="email" name="email" id="email" placeholder="Mail">
+                            <button type="submit" id="boton-comprar">Comprar</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
         </div>
-
-        <a href="https://www.whatsapp.com/?lang=es_LA" target="_blank"><img class="wsp-icon" src="./assets/icono_wsp.webp" alt=""></a>
     </div>
 
-    <!-- Sección Carrito -->
-    <section>
-        <h2 id="carrito">Carrito</h2>
-        <div class="carrito-container">
-            <h3>Tu Pedido:</h3>
-            <ul class="carrito"></ul>
-            <div>
-                <h3 class="datos-usuario">Tus datos:</h3>
-                <form id="form-datos-usuario" class="form-usuario">
-                    <label for="">Nombre:</label>
-                    <input required type="text" name="nombre" id="nombre" placeholder="John">
-                    <label for="">Apellido:</label>
-                    <input required type="text" name="apellido" id="apellido" placeholder="López">
-                    <label for="">Mail:</label>
-                    <input required type="email" name="email" id="email" placeholder="Mail">
-                    <button type="submit" id="boton-comprar">Comprar</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Login -->
-    <!--<section>
-
-    </section> -->
-
-    <footer></footer>
+    <h2>Promociones y Descuentos</h2>
+    <div class="container-promociones">
+        <section id="section-promo1">
+            <h3>Promoción 1</h3>
+            <ul id="container-promo1"></ul>
+        </section>
+        <section id="section-promo2">
+            <h3>Promoción 2</h3>
+            <ul id="container-promo2"></ul>
+        </section>
+    </div>
 
     <!-- Librería Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

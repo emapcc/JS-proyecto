@@ -34,7 +34,7 @@ header img {
 }
 
 div a img {
-  height: 5.46rem;
+  height: 5.4rem;
 }
 div h1 {
   font-family: "Raleway", sans-serif;
@@ -47,44 +47,44 @@ div h2 {
   text-decoration: underline;
 }
 
-.cards-container {
+.container {
   display: grid;
   grid-template-rows: 1.3fr;
-  grid-template-columns: repeat(4, 1.4fr);
+  grid-template-columns: 530px 800px;
   justify-items: center;
 }
-.cards-container .card {
+.container .card {
   background-color: white;
   border-radius: 15px;
-  width: 270px;
+  width: 300px;
   height: 452px;
 }
-.cards-container .card .img1 {
+.container .card .img1 {
   width: 227px;
   height: 141px;
   border-radius: 10px;
   display: block;
   margin: 21px auto;
 }
-.cards-container .card .img2 {
+.container .card .img2 {
   width: 204px;
   height: 175px;
   border-radius: 10px;
   display: block;
   margin: 21px auto;
 }
-.cards-container .card .img3 {
+.container .card .img3 {
   width: 182px;
   height: 175px;
   border-radius: 10px;
   display: block;
   margin: 21px auto;
 }
-.cards-container .card h3 {
+.container .card h3 {
   text-align: center;
   font-family: "Raleway", sans-serif;
 }
-.cards-container .card a {
+.container .card a {
   text-decoration: none;
   color: white;
   background-color: blueviolet;
@@ -92,23 +92,23 @@ div h2 {
   padding: 3% 10%;
   margin: 100px;
 }
-.cards-container .card form label {
+.container .card form label {
   font-family: "Raleway", sans-serif;
   margin-left: 5px;
   margin-top: 1%;
 }
-.cards-container .card form select {
+.container .card form select {
   margin-left: 40px;
 }
-.cards-container .card form .container-sabores {
+.container .card form .container-sabores {
   display: grid;
   grid-template-columns: 15% 50%;
   margin-left: 65px;
 }
-.cards-container .card form input {
+.container .card form input {
   display: inline;
 }
-.cards-container .card form button {
+.container .card form button {
   text-decoration: none;
   color: white;
   background-color: blueviolet;
@@ -119,18 +119,6 @@ div h2 {
   margin-left: 100px;
 }
 
-.wsp-icon {
-  width: 68px;
-  height: 69px;
-  position: fixed;
-  top: 90%;
-  left: 94%;
-}
-
-section {
-  border-top: 1px solid rgb(131, 131, 131);
-  margin-top: 5%;
-}
 section h2 {
   font-family: "Raleway", sans-serif;
   margin-top: 1rem;
@@ -138,8 +126,7 @@ section h2 {
   font-size: xx-large;
 }
 section .carrito-container {
-  width: 656px;
-  height: 366px;
+  width: 720px;
   background-color: white;
   border-radius: 15px;
   text-align: left;
@@ -186,9 +173,54 @@ section .carrito-container div .form-usuario input {
   width: 150px;
 }
 section .carrito-container div .form-usuario button {
-  border: none;
   background-color: blueviolet;
   color: white;
+  border: none;
+  border-radius: 3px;
+  margin: 15px 0;
+}
+
+h2 {
+  font-family: "Raleway", sans-serif;
+  text-decoration: underline;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.container-promociones {
+  margin-left: 10px;
+  margin-right: 25px;
+  display: grid;
+  grid-template-rows: 120px;
+  grid-template-columns: 50% 50%;
+  column-gap: 15px;
+}
+.container-promociones section {
+  background-color: #9285d2;
+  border-radius: 20px;
+  height: 230px;
+}
+.container-promociones section h3 {
+  color: white;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 0;
+}
+.container-promociones section .container-promo1 p {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+}
+.container-promociones section .container-promo1 div div .total-promo {
+  text-decoration: underline;
+}
+.container-promociones section .container-promo1 div button {
+  margin: 10px;
+  padding: 5px 10px;
+  background-color: blueviolet;
+  color: white;
+  border: none;
+  border-radius: 3px;
 }
 
 /*# sourceMappingURL=style.css.map */

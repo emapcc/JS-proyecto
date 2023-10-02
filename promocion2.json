@@ -1,0 +1,14 @@
+[
+    {
+        "id": "promocion2",
+        "medida": "1/4",
+        "sabores": ["frutilla", "americana"],
+        "precio": 400
+    },
+    {
+        "id": "promocion2",
+        "medida": "1/4",
+        "sabores": ["dulce de leche", "chocolate"],
+        "precio": 400
+    }
+]

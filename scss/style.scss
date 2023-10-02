@@ -38,7 +38,7 @@ header {
 div {
     a{
         img {
-            height: 5.46rem;
+            height: 5.40rem;
         }
     }
     h1 {
@@ -54,15 +54,15 @@ div {
 }
 
 //CARDS
-.cards-container {
+.container {
     display: grid;
     grid-template-rows: 1.3fr;
-    grid-template-columns: repeat(4, 1.4fr);
+    grid-template-columns: 530px 800px;
     justify-items: center;
     .card {
         background-color: white;
         border-radius: 15px;
-        width: 270px;
+        width: 300px;
         height: 452px;
         .img1 {
             width: 227px;
@@ -128,18 +128,8 @@ div {
     }
 }
 
-.wsp-icon {
-    width: 68px;
-    height: 69px;
-    position: fixed;
-    top: 90%;
-    left: 94%;
-}
-
 //Página Carrito
 section {
-    border-top: 1px solid rgb(131, 131, 131);
-    margin-top: 5%;
     h2 {
         font-family: 'Raleway', sans-serif;
         margin-top: 1rem;
@@ -147,8 +137,7 @@ section {
         font-size: xx-large;
     }
     .carrito-container {
-        width: 656px;
-        height: 366px;
+        width: 720px;
         background-color: white;
         border-radius: 15px;
         text-align: left;
@@ -196,9 +185,63 @@ section {
                     width: 150px;
                 }
                 button {
-                    border: none;
                     background-color: blueviolet;
                     color: white;
+                    border: none;
+                    border-radius: 3px;
+                    margin: 15px 0;
+                }
+            }
+        }
+    }
+}
+
+//Promociones
+h2 {
+    font-family: 'Raleway', sans-serif;
+    text-decoration: underline;
+    margin-left: 2%;
+    margin-top: 2%;
+}
+
+.container-promociones {
+    margin-left: 10px;
+    margin-right: 25px;
+    display: grid;
+    grid-template-rows: 120px;
+    grid-template-columns: 50% 50%;
+    column-gap: 15px;
+    section {
+        background-color: #9285d2;
+        border-radius: 20px;
+        height: 230px;
+        h3 {
+            color: white;
+            font-family: 'Raleway', sans-serif;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+        .container-promo1 {
+            p {
+                margin: 0;
+                font-family: 'Raleway', sans-serif;
+            }
+            div {
+                div {
+                    .total-promo {
+                        text-decoration: underline;
+                    }
+                }
+            }
+            div {
+                button {
+                    margin: 10px;
+                    padding: 5px 10px;
+                    background-color: blueviolet;
+                    color: white;
+                    border: none;
+                    border-radius: 3px;
                 }
             }
         }
